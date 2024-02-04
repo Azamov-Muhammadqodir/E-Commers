@@ -1,12 +1,7 @@
 ﻿using E_Commers.Domain.Entity.Token;
 using E_Commers.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace E_Commers.Application.Interfaces
 {
