@@ -27,7 +27,7 @@ namespace E_Commers.Application.Services
             var roles = new List<UserRole>();
 
             foreach (var item in entity._roles)
-            {
+                {
                 roles.Add(new UserRole()
                 {
                     Role = _dbContext.Roles.Find(item)
@@ -72,10 +72,10 @@ namespace E_Commers.Application.Services
             return Task.FromResult(user);
         }
 
-        public Task<bool> UpdateAsync(User entity)
+        public async Task<bool> UpdateAsync(User entity)
         {
-            _DbContext.Users.Update(entity);
-            int result = await _DbContext.SaveChangesAsync();
+            _dbContext.Users.Update(entity);
+            int result = await _dbContext.SaveChangesAsync();
             return result > 0;
         }
     }

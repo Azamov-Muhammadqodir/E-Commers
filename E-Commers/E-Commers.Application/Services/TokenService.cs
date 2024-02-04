@@ -11,14 +11,14 @@ using System.Security.Claims;
 using System.Text;
 
 namespace E_Commers.Application.Services;
-public class TokenSevice : ITokenService
+public class TokenService : ITokenService
 {
     private readonly IConfiguration _configuration;
     private readonly IApplicationDbContext _dbcontext;
     private readonly int _refreshTokenLifeTime;
     private readonly int _accessTokenLifeTime;
 
-    public TokenSevice(IConfiguration configuration, IApplicationDbContext dbcontext)
+    public TokenService(IConfiguration configuration, IApplicationDbContext dbcontext)
     {
         _configuration = configuration;
         _dbcontext = dbcontext;
