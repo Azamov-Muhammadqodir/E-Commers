@@ -18,7 +18,7 @@ namespace E_Commers.Domain.Entity
         public string PasswordHash {  get; set; }
         public string PasswordSold {  get; set; }
         [JsonPropertyName("UserRoleNames")]
-        public ICollection<UserRole>? Roles { get; set; }
+        public ICollection<UserRole>? UserRoles { get; set; }
         [JsonPropertyName("Roles")]
         public Guid[] _roles {  get; set; }
     }
