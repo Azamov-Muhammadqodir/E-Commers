@@ -1,4 +1,5 @@
-﻿using E_Commers.Domain.Commons;
+﻿using E_Commers.Application.Interfaces;
+using E_Commers.Domain.Commons;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -41,8 +42,5 @@ namespace E_Commers.Infrastructure.Persistence.Interseptors
             }
         }
     }
-    public interface ICurrentUser
-    {
-        string Name { get; set; }
-    }
+    
 }

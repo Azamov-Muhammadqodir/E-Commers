@@ -1,9 +1,11 @@
 ﻿using E_Commers.Application.Abstraction;
 using E_Commers.Infrastructure.Persistence;
+using E_Commers.Infrastructure.Persistence.Interseptors;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -65,9 +67,13 @@ namespace E_Commers.Infrastructure
                                     }
                                 };
                             });
-            services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("DbConnection")));
+            services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(options =>
+            {
+                options.UseNpgsql(configuration.GetConnectionString("DbConnection"));
+                
+            });
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<AuditableEntitySaveChangesInterseptor>();
             return services;
         }
 

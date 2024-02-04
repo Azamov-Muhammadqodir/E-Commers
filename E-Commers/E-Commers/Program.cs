@@ -1,4 +1,7 @@
 
+using E_Commers.Application;
+using E_Commers.Infrastructure;
+
 namespace E_Commers
 {
     public class Program
@@ -7,6 +10,9 @@ namespace E_Commers
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApplication(builder.Configuration);
+                
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -21,12 +27,9 @@ namespace E_Commers
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }

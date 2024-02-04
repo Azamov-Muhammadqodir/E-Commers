@@ -7,15 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-	<ItemGroup>
-    <PackageReference Include="swashbuckle.aspnetcore" Version="6.5.0" />
-  </ItemGroup>		<PackageReference Include="swashbuckle.aspnetcore" Version="6.5.0" />
-	
-	
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
-
+	
   <ItemGroup>
     <ProjectReference Include="..\E-Commers.Application\E-Commers.Application.csproj" />
   </ItemGroup>
