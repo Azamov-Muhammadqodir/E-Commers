@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\E-Commers.Application\E-Commers.Application.csproj" />
+  </ItemGroup>
+
 </Project>

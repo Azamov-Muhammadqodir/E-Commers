@@ -10,8 +10,8 @@ namespace E_Commers.Domain.Entity
 {
     public class Permission:BaseAuditableEntity
     {
-        public int Name { get; set; }
+        public string Name { get; set; }
         [JsonIgnore]
-        public ICollection<RolePermission> RolePermissions { get; set; }
+        public ICollection<RolePermission>? RolePermissions { get; set; }
     }
 }

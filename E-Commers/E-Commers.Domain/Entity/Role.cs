@@ -13,8 +13,8 @@ namespace E_Commers.Domain.Entity
         public string Name  { get; set; }
         public Guid[] PremissionIDs { get; set; }
         [JsonIgnore]
-        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserRole>? UserRoles { get; set; }
         [JsonIgnore]
-        public ICollection<RolePermission> RolePermissions { get; set; }
+        public ICollection<RolePermission>? RolePermissions { get; set; }
     }
 }
