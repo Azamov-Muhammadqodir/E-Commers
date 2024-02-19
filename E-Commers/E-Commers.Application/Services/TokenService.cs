@@ -128,7 +128,7 @@ public class TokenService : ITokenService
         {
             ValidateAudience = true,
             ValidateIssuer = true,
-            ValidateLifetime = false,
+            ValidateLifetime = true,
             ValidAudience = _configuration["JWT:Audience"],
             ValidIssuer = _configuration["JWT:Issuer"],
             IssuerSigningKey = new SymmetricSecurityKey(Key),

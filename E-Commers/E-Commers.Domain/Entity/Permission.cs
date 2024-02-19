@@ -12,6 +12,6 @@ namespace E_Commers.Domain.Entity
     {
         public string Name { get; set; }
         [JsonIgnore]
-        public ICollection<RolePermission> RolePermissions { get; set; }
+        public ICollection<RolePermission>? RolePermissions { get; set; }
     }
 }

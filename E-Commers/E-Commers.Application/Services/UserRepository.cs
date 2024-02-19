@@ -24,21 +24,30 @@ namespace E_Commers.Application.Services
 
         public async Task<User> CreateAsync(User entity)
         {
-            var roles = new List<UserRole>();
+            var roles = new List<UserRole> { new UserRole() };
+            if(entity._roles != null)
+            {
+                roles = new List<UserRole>();
 
-            foreach (var item in entity._roles)
+                foreach (var item in entity._roles)
                 {
                 roles.Add(new UserRole()
                 {
-                    Role = _dbContext.Roles.Find(item)
+                    Role = _dbContext.Roles.Find(item),
 
                 });
+                entity.UserRoles = roles;
+                }
+            }
+            else
+            {
+                entity.UserRoles = new List<UserRole>();
             }
 
-            entity.UserRoles = roles;
             entity.Password = entity.Password.ComputeHash();
+            entity.PasswordSold = "string1";
             await _dbContext.Users.AddAsync(entity);
-            int result = await _dbContext.SaveChangesAsync();
+             int result = await _dbContext.SaveChangesAsync();
             return entity;
         }
         

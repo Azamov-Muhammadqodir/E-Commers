@@ -11,7 +11,7 @@ namespace E_Commers.Infrastructure.Persistence.Interseptors
         private readonly ICurrentUser _currentUser;
         public AuditableEntitySaveChangesInterseptor(ICurrentUser currentUser)
         {
-                _currentUser = currentUser;
+             _currentUser = currentUser;
         }
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
@@ -31,12 +31,12 @@ namespace E_Commers.Infrastructure.Persistence.Interseptors
             {
                 if(item.State == EntityState.Added)
                 {
-                    item.Entity.CreatedBy = _currentUser.Name;
+                    item.Entity.CreatedBy = _currentUser.Name??"Admin";
                     item.Entity.CreatedDate = DateTime.Now;
                 }
                 else if(item.State == EntityState.Modified)
                 {
-                    item.Entity.ModifyBy = _currentUser.Name;
+                    item.Entity.ModifyBy = _currentUser.Name??"Admin";
                     item.Entity.ModifyDate = DateTime.Now;
                 }
             }

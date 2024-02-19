@@ -13,6 +13,7 @@ namespace E_Commers.Domain.Entity
         public int StatusCode { get; set; } = 200;
         public string Message { get; set; } = "";
         public bool IsSuccess { get; set; } = true;
-        public T Result { get; set; }
+        public object Result { get; set; }
+
     }
 }
